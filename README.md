@@ -1,6 +1,5 @@
-# SmartCrop: Crop Disease Detection Application
+# SmartCrop: Crop Disease Detection Application <img src="images/icon_without_bg.png" alt="SmartCrop Logo" width="100" height="100">
 
-![SmartCrop Logo](generated-icon.png)
 
 ## Overview
 
@@ -26,10 +25,12 @@ SmartCrop is a web application that allows farmers and agricultural professional
 ## Screenshots
 
 ### Home Page
-![Home Page](https://via.placeholder.com/800x400?text=SmartCrop+Home+Page)
+![Home Page](images/homepage.png)
+
+![Home page image upload](images/homepage_after_uploading_img.png)
 
 ### Analysis Results
-![Analysis Results](https://via.placeholder.com/800x400?text=SmartCrop+Analysis+Results)
+![Analysis Results](images/response.png)
 
 ## Installation
 
