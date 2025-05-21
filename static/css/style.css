@@ -1,0 +1,91 @@
+/* Additional custom styles beyond Bootstrap */
+
+/* Improve canvas display */
+canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Image preview container styles */
+#image-preview-container, 
+#results-container {
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 1rem;
+}
+
+/* File input styling enhancements */
+.form-control[type="file"] {
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Card shadows and hover effects */
+.card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+}
+
+/* Make cards in the same row the same height */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Result label styling */
+#result-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Loading indicator enhancements */
+#loading-indicator {
+    padding: 2rem 0;
+}
+
+/* Empty state styling */
+#no-results {
+    padding: 2rem 0;
+    color: var(--bs-secondary);
+}
+
+/* Error message styling */
+#error-container {
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}

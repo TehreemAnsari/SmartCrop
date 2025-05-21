@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCrop - Crop Disease Detection</title>
+    <!-- Replit-themed Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="bg-dark py-3 mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center">
+                <h1 class="text-light fw-bold"><i class="fas fa-leaf me-2"></i>SmartCrop</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-4">
+        {% if error %}
+        <div class="alert alert-danger mb-4">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header">
+                        <h3 class="card-title">Image Upload</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="image-upload" class="form-label">Upload image of a crop</label>
+                                <input class="form-control" type="file" id="image-upload" accept="image/*" required>
+                            </div>
+                            <div id="image-preview-container" class="mb-3 d-none">
+                                <div class="position-relative">
+                                    <canvas id="image-preview" class="img-fluid rounded border"></canvas>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" id="analyse-btn" class="btn btn-primary">
+                                    <i class="fas fa-search me-2"></i>Analyse
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header">
+                        <h3 class="card-title">Analysis Results</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="loading-indicator" class="text-center d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Analyzing image...</p>
+                        </div>
+                        
+                        <div id="results-container" class="d-none">
+                            <div class="position-relative mb-3">
+                                <canvas id="result-canvas" class="img-fluid rounded border"></canvas>
+                            </div>
+                            
+                            <div class="alert alert-info mb-3" role="alert">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <div>
+                                        <h4 class="alert-heading" id="result-label">Detection Result</h4>
+                                        <p class="mb-0">Confidence: <span id="result-score"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="no-results" class="text-center">
+                            <i class="fas fa-image text-muted fa-4x mb-3"></i>
+                            <p class="text-muted">Upload and analyse an image to see results</p>
+                        </div>
+                        
+                        <div id="error-container" class="alert alert-danger d-none" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <span id="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h3 class="card-title">About SmartCrop</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>SmartCrop uses advanced machine learning algorithms to detect and analyze crop diseases. Simply upload an image of your crop, and our system will identify potential issues, helping you take timely action to protect your harvest.</p>
+                        <p class="mb-0"><strong>How it works:</strong> Our AI model analyzes the visual patterns in your crop images to identify signs of disease, nutrient deficiencies, or pest damage. The system highlights the affected areas and provides classification results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-3 mt-4 bg-dark">
+        <div class="container text-center">
+            <p class="text-muted mb-0">&copy; 2023 SmartCrop - Crop Disease Detection</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
